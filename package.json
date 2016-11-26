@@ -1,0 +1,27 @@
+{
+  "name": "blx-fsm",
+  "version": "0.0.1",
+  "description": "https://github.com/bramblex/blx-fsm.git",
+  "main": "dist/blx-fsm.js",
+  "scripts": {
+    "test": "node test/test.js",
+    "build": "$(npm bin)/babel src/blx-fsm.js --out-file dist/blx-fsm.js --presets=es2015"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bramblex/blx-fsm.git"
+  },
+  "keywords": [
+    "fsm"
+  ],
+  "author": "bramblex (qjnight@gmail.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bramblex/blx-fsm/issues"
+  },
+  "homepage": "https://github.com/bramblex/blx-fsm#readme",
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-preset-es2015": "^6.18.0"
+  }
+}
