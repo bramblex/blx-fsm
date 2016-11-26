@@ -25,7 +25,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function SimpleEventEmitter() {
       _classCallCheck(this, SimpleEventEmitter);
 
-      if (!(this instanceof SimpleEventEmitter)) throw new Error('Uncaught TypeError: Failed to construct \'SimpleEventEmitter\': Please use the \'new\' operator');
       this.__events__ = {};
     }
 
@@ -113,10 +112,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function FSMRuleError(msg) {
       _classCallCheck(this, FSMRuleError);
 
-      var _this3 = _possibleConstructorReturn(this, (FSMRuleError.__proto__ || Object.getPrototypeOf(FSMRuleError)).call(this, msg));
-
-      if (!(_this3 instanceof FSMRuleError)) throw new Error('Uncaught TypeError: Failed to construct \'FSMRuleError\': Please use the \'new\' operator');
-      return _this3;
+      return _possibleConstructorReturn(this, (FSMRuleError.__proto__ || Object.getPrototypeOf(FSMRuleError)).call(this, msg));
     }
 
     return FSMRuleError;
@@ -125,8 +121,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   var FSMRule = function () {
     function FSMRule(start_rule) {
       _classCallCheck(this, FSMRule);
-
-      if (!(this instanceof FSMRule)) throw new Error('Uncaught TypeError: Failed to construct \'FSMRule\': Please use the \'new\' operator');
 
       var start_regexp = /^\s*start (\w+)\s*$/;
       var rule_regexp = /^\s*([\w\*]+)\s*\(\s*(\w+)\s*\)\s*=>\s*(\w+)\s*$/;
@@ -295,7 +289,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
       var _this4 = _possibleConstructorReturn(this, (FSMRuntimeError.__proto__ || Object.getPrototypeOf(FSMRuntimeError)).call(this, msg));
 
-      if (!(_this4 instanceof FSMRuntimeError)) throw new Error('Uncaught TypeError: Failed to construct \'FSMRuntimeError\': Please use the \'new\' operator');
       _this4.code = code;
       return _this4;
     }
@@ -311,7 +304,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
       var _this5 = _possibleConstructorReturn(this, (FSM.__proto__ || Object.getPrototypeOf(FSM)).call(this));
 
-      if (!(_this5 instanceof FSM)) throw new Error('Uncaught TypeError: Failed to construct \'FSM\': Please use the \'new\' operator');
       _this5.fsm_rule = fsm_rule;
       _this5.rules = _this5.fsm_rule.rules;
       _this5.state = null;
@@ -370,8 +362,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _classCallCheck(this, FSMDebug);
 
       var _this6 = _possibleConstructorReturn(this, (FSMDebug.__proto__ || Object.getPrototypeOf(FSMDebug)).call(this, fsm_rule));
-
-      if (!(_this6 instanceof FSMDebug)) throw new Error('Uncaught TypeError: Failed to construct \'FSMDebug\': Please use the \'new\' operator');
 
       if (!(fsm_rule instanceof FSMRule)) throw new FSMRuntimeError('Argument must instance of FSMRule class');
 

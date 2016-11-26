@@ -8,8 +8,6 @@
 
   class SimpleEventEmitter {
     constructor(){
-      if (!(this instanceof SimpleEventEmitter))
-        throw new Error(`Uncaught TypeError: Failed to construct 'SimpleEventEmitter': Please use the 'new' operator`)
       this.__events__ = {}
     }
 
@@ -62,15 +60,11 @@
   class FSMRuleError extends Error {
     constructor(msg){
       super(msg)
-      if (!(this instanceof FSMRuleError))
-        throw new Error(`Uncaught TypeError: Failed to construct 'FSMRuleError': Please use the 'new' operator`)
     }
   }
 
   class FSMRule {
     constructor(start_rule, ...raw_rules) {
-      if (!(this instanceof FSMRule))
-        throw new Error(`Uncaught TypeError: Failed to construct 'FSMRule': Please use the 'new' operator`)
 
       const start_regexp = /^\s*start (\w+)\s*$/
       const rule_regexp = /^\s*([\w\*]+)\s*\(\s*(\w+)\s*\)\s*=>\s*(\w+)\s*$/
@@ -205,8 +199,6 @@
   class FSMRuntimeError extends Error {
     constructor(code, msg){
       super(msg)
-      if (!(this instanceof FSMRuntimeError))
-        throw new Error(`Uncaught TypeError: Failed to construct 'FSMRuntimeError': Please use the 'new' operator`)
       this.code = code
     }
   }
@@ -214,8 +206,6 @@
   class FSM extends SimpleEventEmitter {
     constructor(fsm_rule){
       super()
-      if (!(this instanceof FSM))
-        throw new Error(`Uncaught TypeError: Failed to construct 'FSM': Please use the 'new' operator`)
       this.fsm_rule = fsm_rule
       this.rules = this.fsm_rule.rules
       this.state = null
@@ -263,8 +253,6 @@
   class FSMDebug extends FSM {
     constructor(fsm_rule){
       super(fsm_rule)
-      if (!(this instanceof FSMDebug))
-        throw new Error(`Uncaught TypeError: Failed to construct 'FSMDebug': Please use the 'new' operator`)
 
       if (! (fsm_rule instanceof FSMRule))
         throw new FSMRuntimeError('Argument must instance of FSMRule class')

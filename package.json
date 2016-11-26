@@ -5,7 +5,7 @@
   "main": "dist/blx-fsm.js",
   "scripts": {
     "test": "node test/test.js",
-    "build": "$(npm bin)/babel src/blx-fsm.js --out-file dist/blx-fsm.js --presets=es2015"
+    "build": "$(npm bin)/babel src/blx-fsm.js --out-file dist/blx-fsm.js --presets=es2015 && npm run test"
   },
   "repository": {
     "type": "git",
