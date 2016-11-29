@@ -1,0 +1,10 @@
+
+
+# this is a test rule file
+
+@define home, game;
+@start home;
+
+home (goGame) => game;
+game (goHome) => home;
+

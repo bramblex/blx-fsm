@@ -23,5 +23,8 @@
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-preset-es2015": "^6.18.0"
+  },
+  "dependencies": {
+    "jison": "^0.4.17"
   }
 }
