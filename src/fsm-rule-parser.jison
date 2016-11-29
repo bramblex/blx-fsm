@@ -28,9 +28,12 @@ whitespaces                             ([\ \t\f\n])+
 
 %start fsm_rule_file
 
+%{
+%}
+
 %%
 
-/**  Module **/
+/**  FSM **/
 
 fsm_rule_file
   : fsm_rule EOF                        { console.log($1); return $1 }
@@ -43,7 +46,7 @@ fsm_rule
   ;
 
 fsm_rule_body
-  : fsm_rule_body fsm_rule_field ';'    { $$ = $1.concat([$2])}
+  : fsm_rule_body fsm_rule_field ';'    { $$ = $1.concat([$2]); }
   | fsm_rule_field ';'                  { $$ = [$1] }
   ;
 
