@@ -6,5 +6,5 @@
 const parser = require('./parser')
 
 module.exports = source => {
-  return JSON.stringify(parser.parse(source))
+  return `module.exports = ${JSON.stringify(parser.parse(source))}`
 }
