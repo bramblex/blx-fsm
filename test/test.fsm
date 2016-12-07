@@ -1,0 +1,11 @@
+# This is a test fsm rule file
+
+
+@define home, game, end, error;
+@start home;
+
+home (startGame) => game;
+game (endGame) => end;
+end (backHome) => home;
+/.*/ (getError) => error;
+

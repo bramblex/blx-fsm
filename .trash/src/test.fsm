@@ -6,5 +6,4 @@
 @start home;
 
 home (goGame) => game;
-game (goHome) => home;
-
+/^aaa*/ (goHome) => home;

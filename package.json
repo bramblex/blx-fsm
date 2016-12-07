@@ -1,11 +1,11 @@
 {
   "name": "blx-fsm",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "https://github.com/bramblex/blx-fsm.git",
-  "main": "dist/blx-fsm.js",
+  "main": "index.js",
   "scripts": {
     "test": "node test/test.js",
-    "build": "$(npm bin)/babel src/blx-fsm.js --out-file dist/blx-fsm.js --presets=es2015 && npm run test"
+    "build-parser": "cd src && $(npm bin)/jison parser.jison"
   },
   "repository": {
     "type": "git",
@@ -21,10 +21,10 @@
   },
   "homepage": "https://github.com/bramblex/blx-fsm#readme",
   "devDependencies": {
-    "babel-cli": "^6.18.0",
-    "babel-preset-es2015": "^6.18.0"
-  },
-  "dependencies": {
     "jison": "^0.4.17"
+  },
+  "engines": {
+    "node": ">=6.9.1",
+    "npm": ">=3.10.8"
   }
 }
