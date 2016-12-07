@@ -16,11 +16,11 @@ const _set = (obj, fileds, value) => {
 }
 
 module.exports = class Rule {
-  constructor ({states, start, body}) {
+  constructor ({define, start, body}) {
     const rules = {}
     body.forEach(([first, input, second]) => {
       if (first instanceof RegExp) {
-        states.filter(state => first.test(state)).forEach(_first => {
+        define.filter(state => first.test(state)).forEach(_first => {
           _set(rules, [_first, input], second)
         })
       } else {

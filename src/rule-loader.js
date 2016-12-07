@@ -7,10 +7,11 @@ const parser = require('./parser')
 const json = JSON.stringify
 
 module.exports = source => {
-  const {states, start, body} = parser.parse(source)
+  const {define, start, body} = parser.parse(source)
   return `
-  module.exports = {
-    states: ${json(states)},
+  var Rule = require('blx-fsm').Rule
+  module.exports = new Rule({
+    define: ${json(define)},
     start: ${json(start)}, 
     body: [${body.map(([first, input, second]) => {
       if (first instanceof RegExp) {
@@ -19,5 +20,5 @@ module.exports = source => {
         return `[${json(first)}, ${json(input)}, ${json(second)}]`
       }
     }).join(', ')}]
-  }`
+  })`
 }
