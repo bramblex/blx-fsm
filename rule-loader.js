@@ -7,5 +7,5 @@ const parser = require('./parser')
 const Rule = require('./rule')
 
 module.exports = source => {
-  return new Rule(parser.parser(source))
+  return new Rule(parser.parse(source))
 }
