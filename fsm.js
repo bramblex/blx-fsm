@@ -3,7 +3,9 @@
  */
 'use strict'
 
-module.exports = class FSM extends require('./simple-eventemitter') {
+const SimpleEventEmitter = require('./simple-eventemitter')
+
+module.exports = class FSM extends SimpleEventEmitter {
   constructor (rule) {
     super()
     this.__rules__ = rule.rules

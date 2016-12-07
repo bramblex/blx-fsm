@@ -1,7 +1,7 @@
 # This is a test fsm rule file
 
 
-@define home, game, end, error;
+@states home, game, end, error;
 @start home;
 
 home (startGame) => game;

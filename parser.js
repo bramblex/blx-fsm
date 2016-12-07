@@ -75,8 +75,8 @@ var parser = (function(){
 var o=function(k,v,o,l){for(o=o||{},l=k.length;l--;o[k[l]]=v);return o},$V0=[1,7],$V1=[8,17],$V2=[1,18],$V3=[5,18,20];
 var parser = {trace: function trace() { },
 yy: {},
-symbols_: {"error":2,"fsm_rule_file":3,"fsm_rule":4,"EOF":5,"@define":6,"state_list":7,";":8,"@start":9,"state":10,"fsm_rule_body":11,"fsm_rule_field":12,"first":13,"input":14,"=>":15,"second":16,",":17,"REGEXP":18,"(":19,"NAME":20,")":21,"$accept":0,"$end":1},
-terminals_: {2:"error",5:"EOF",6:"@define",8:";",9:"@start",15:"=>",17:",",18:"REGEXP",19:"(",20:"NAME",21:")"},
+symbols_: {"error":2,"fsm_rule_file":3,"fsm_rule":4,"EOF":5,"@states":6,"state_list":7,";":8,"@start":9,"state":10,"fsm_rule_body":11,"fsm_rule_field":12,"first":13,"input":14,"=>":15,"second":16,",":17,"REGEXP":18,"(":19,"NAME":20,")":21,"$accept":0,"$end":1},
+terminals_: {2:"error",5:"EOF",6:"@states",8:";",9:"@start",15:"=>",17:",",18:"REGEXP",19:"(",20:"NAME",21:")"},
 productions_: [0,[3,2],[4,7],[11,3],[11,2],[12,4],[7,3],[7,1],[13,1],[13,1],[16,1],[14,3],[10,1]],
 performAction: function anonymous(yytext, yyleng, yylineno, yy, yystate /* action[1] */, $$ /* vstack */, _$ /* lstack */) {
 /* this == yyval */
@@ -87,7 +87,7 @@ case 1:
  return $$[$0-1] 
 break;
 case 2:
- this.$ = {define: $$[$0-5], start: $$[$0-2], body: $$[$0] }
+ this.$ = {states: $$[$0-5], start: $$[$0-2], body: $$[$0] }
     
 break;
 case 3:
@@ -615,7 +615,7 @@ case 6:
 break;
 }
 },
-rules: [/^(?:$)/,/^(?:(([\ \t\f\n])+))/,/^(?:(#[^\n]*))/,/^(?:(@define|@start\b))/,/^(?:(=>|\(|\)|\{|\}|,|;))/,/^(?:(([\w\*])+))/,/^(?:(\/([^\\\n\`]|\\.)+?\/))/],
+rules: [/^(?:$)/,/^(?:(([\ \t\f\n])+))/,/^(?:(#[^\n]*))/,/^(?:(@states|@start\b))/,/^(?:(=>|\(|\)|\{|\}|,|;))/,/^(?:(([\w\*])+))/,/^(?:(\/([^\\\n\`]|\\.)+?\/))/],
 conditions: {"INITIAL":{"rules":[0,1,2,3,4,5,6],"inclusive":true},"INCOMMENT":{"rules":[0,1,2,3,4,5,6],"inclusive":true}}
 });
 return lexer;

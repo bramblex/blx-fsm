@@ -20,7 +20,7 @@ const getRuleFromLoader = () => {
 
 const fsm1 = new FSM(new Rule(rule))
 const fsm2 = new FSM(new Rule({
-  define: ['home', 'game', 'end', 'error'],
+  states: ['home', 'game', 'end', 'error'],
   start: 'home',
   body: [
     ['home', 'startGame', 'game'],

@@ -5,7 +5,7 @@
 /** identifiers **/
 identifier                              ([\w\*])+
 
-keywords                                "@define" | "@start"
+keywords                                "@states" | "@start"
 
 symbols                                 "=>"|"("|")"|"{"|"}"|","|";"
 
@@ -44,9 +44,9 @@ fsm_rule_file
   ;
 
 fsm_rule
-  : '@define' state_list ';'
+  : '@states' state_list ';'
     '@start' state ';'
-    fsm_rule_body                       { $$ = {define: $2, start: $5, body: $7 }
+    fsm_rule_body                       { $$ = {states: $2, start: $5, body: $7 }
     }
   ;
 

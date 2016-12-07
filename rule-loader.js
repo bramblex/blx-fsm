@@ -7,10 +7,10 @@ const parser = require('./parser')
 const json = JSON.stringify
 
 module.exports = source => {
-  const {define, start, body} = parser.parse(source)
+  const {states, start, body} = parser.parse(source)
   return `
   module.exports = {
-    define: ${json(define)},
+    states: ${json(states)},
     start: ${json(start)}, 
     body: [${body.map(([first, input, second]) => {
       if (first instanceof RegExp) {

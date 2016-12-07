@@ -1,11 +1,11 @@
 {
   "name": "blx-fsm",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "https://github.com/bramblex/blx-fsm.git",
   "main": "index.js",
   "scripts": {
     "test": "node test/test.js",
-    "build-parser": "cd src && $(npm bin)/jison parser.jison"
+    "build-parser": "$(npm bin)/jison parser.jison"
   },
   "repository": {
     "type": "git",
