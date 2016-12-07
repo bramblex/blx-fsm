@@ -4,8 +4,7 @@
 'use strict'
 
 const parser = require('./parser')
-const Rule = require('./rule')
 
 module.exports = source => {
-  return new Rule(parser.parse(source))
+  return JSON.stringify(parser.parse(source))
 }

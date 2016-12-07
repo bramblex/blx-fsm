@@ -1,6 +1,6 @@
 {
   "name": "blx-fsm",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "https://github.com/bramblex/blx-fsm.git",
   "main": "index.js",
   "scripts": {
