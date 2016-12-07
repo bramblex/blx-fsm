@@ -72,12 +72,12 @@
   }
 */
 var parser = (function(){
-var o=function(k,v,o,l){for(o=o||{},l=k.length;l--;o[k[l]]=v);return o},$V0=[1,7],$V1=[8,17],$V2=[1,18],$V3=[5,18,20];
+var o=function(k,v,o,l){for(o=o||{},l=k.length;l--;o[k[l]]=v);return o},$V0=[1,5],$V1=[1,10],$V2=[7,19],$V3=[1,22],$V4=[5,20,22];
 var parser = {trace: function trace() { },
 yy: {},
-symbols_: {"error":2,"fsm_rule_file":3,"fsm_rule":4,"EOF":5,"@define":6,"state_list":7,";":8,"@start":9,"state":10,"fsm_rule_body":11,"fsm_rule_field":12,"first":13,"input":14,"=>":15,"second":16,",":17,"REGEXP":18,"(":19,"NAME":20,")":21,"$accept":0,"$end":1},
-terminals_: {2:"error",5:"EOF",6:"@define",8:";",9:"@start",15:"=>",17:",",18:"REGEXP",19:"(",20:"NAME",21:")"},
-productions_: [0,[3,2],[4,7],[11,3],[11,2],[12,4],[7,3],[7,1],[13,1],[13,1],[16,1],[14,3],[10,1]],
+symbols_: {"error":2,"fsm_rule_file":3,"fsm_rule_with_strict":4,"EOF":5,"@strict":6,";":7,"fsm_rule":8,"@define":9,"state_list":10,"@start":11,"state":12,"fsm_rule_body":13,"fsm_rule_field":14,"first":15,"input":16,"=>":17,"second":18,",":19,"REGEXP":20,"(":21,"NAME":22,")":23,"$accept":0,"$end":1},
+terminals_: {2:"error",5:"EOF",6:"@strict",7:";",9:"@define",11:"@start",17:"=>",19:",",20:"REGEXP",21:"(",22:"NAME",23:")"},
+productions_: [0,[3,2],[4,3],[4,1],[8,7],[13,3],[13,2],[14,4],[10,3],[10,1],[15,1],[15,1],[18,1],[16,3],[12,1]],
 performAction: function anonymous(yytext, yyleng, yylineno, yy, yystate /* action[1] */, $$ /* vstack */, _$ /* lstack */) {
 /* this == yyval */
 
@@ -87,37 +87,42 @@ case 1:
  return $$[$0-1] 
 break;
 case 2:
- this.$ = {define: $$[$0-5], start: $$[$0-2], body: $$[$0] }
-    
+ this.$ = {strict: true, define: $$[$0][0], start: $$[$0][1], body: $$[$0][2]} 
 break;
 case 3:
- this.$ = $$[$0-2].concat([$$[$0-1]]); 
+ this.$ = {strict: false, define: $$[$0][0], start: $$[$0][1], body: $$[$0][2]} 
 break;
 case 4:
- this.$ = [$$[$0-1]] 
+ this.$ = [$$[$0-5], $$[$0-2], $$[$0]] 
 break;
 case 5:
- this.$ = [$$[$0-3], $$[$0-2], $$[$0]] 
+ this.$ = $$[$0-2].concat([$$[$0-1]]); 
 break;
 case 6:
- this.$ = $$[$0-2].concat([$$[$0]]) 
+ this.$ = [$$[$0-1]] 
 break;
 case 7:
- this.$ = [$$[$0]] 
+ this.$ = [$$[$0-3], $$[$0-2], $$[$0]] 
 break;
-case 8: case 12:
- this.$ = $$[$0] 
+case 8:
+ this.$ = $$[$0-2].concat([$$[$0]]) 
 break;
 case 9:
- this.$ = new RegExp($$[$0]) 
+ this.$ = [$$[$0]] 
+break;
+case 10: case 14:
+ this.$ = $$[$0] 
 break;
 case 11:
+ this.$ = new RegExp($$[$0]) 
+break;
+case 13:
  this.$ = $$[$0-1] 
 break;
 }
 },
-table: [{3:1,4:2,6:[1,3]},{1:[3]},{5:[1,4]},{7:5,10:6,20:$V0},{1:[2,1]},{8:[1,8],17:[1,9]},o($V1,[2,7]),o([8,17,19],[2,12]),{9:[1,10]},{10:11,20:$V0},{10:12,20:$V0},o($V1,[2,6]),{8:[1,13]},{10:17,11:14,12:15,13:16,18:$V2,20:$V0},{5:[2,2],10:17,12:19,13:16,18:$V2,20:$V0},{8:[1,20]},{14:21,19:[1,22]},{19:[2,8]},{19:[2,9]},{8:[1,23]},o($V3,[2,4]),{15:[1,24]},{20:[1,25]},o($V3,[2,3]),{10:27,16:26,20:$V0},{21:[1,28]},{8:[2,5]},{8:[2,10]},{15:[2,11]}],
-defaultActions: {4:[2,1],17:[2,8],18:[2,9],26:[2,5],27:[2,10],28:[2,11]},
+table: [{3:1,4:2,6:[1,3],8:4,9:$V0},{1:[3]},{5:[1,6]},{7:[1,7]},{5:[2,3]},{10:8,12:9,22:$V1},{1:[2,1]},{8:11,9:$V0},{7:[1,12],19:[1,13]},o($V2,[2,9]),o([7,19,21],[2,14]),{5:[2,2]},{11:[1,14]},{12:15,22:$V1},{12:16,22:$V1},o($V2,[2,8]),{7:[1,17]},{12:21,13:18,14:19,15:20,20:$V3,22:$V1},{5:[2,4],12:21,14:23,15:20,20:$V3,22:$V1},{7:[1,24]},{16:25,21:[1,26]},{21:[2,10]},{21:[2,11]},{7:[1,27]},o($V4,[2,6]),{17:[1,28]},{22:[1,29]},o($V4,[2,5]),{12:31,18:30,22:$V1},{23:[1,32]},{7:[2,7]},{7:[2,12]},{17:[2,13]}],
+defaultActions: {4:[2,3],6:[2,1],11:[2,2],21:[2,10],22:[2,11],30:[2,7],31:[2,12],32:[2,13]},
 parseError: function parseError(str, hash) {
     if (hash.recoverable) {
         this.trace(str);
@@ -606,16 +611,16 @@ case 3:return yy_.yytext
 break;
 case 4:return yy_.yytext
 break;
-case 5:return 20
+case 5:return 22
 break;
 case 6:
                                           yy_.yytext = yy_.yytext.slice(1, -1)
-                                          return 18
+                                          return 20
                                         
 break;
 }
 },
-rules: [/^(?:$)/,/^(?:(([\ \t\f\n])+))/,/^(?:(#[^\n]*))/,/^(?:(@define|@start\b))/,/^(?:(=>|\(|\)|\{|\}|,|;))/,/^(?:(([\w\*])+))/,/^(?:(\/([^\\\n\`]|\\.)+?\/))/],
+rules: [/^(?:$)/,/^(?:(([\ \t\f\n])+))/,/^(?:(#[^\n]*))/,/^(?:(@define|@start|@strict\b))/,/^(?:(=>|\(|\)|\{|\}|,|;))/,/^(?:(([\w\*])+))/,/^(?:(\/([^\\\n\`]|\\.)+?\/))/],
 conditions: {"INITIAL":{"rules":[0,1,2,3,4,5,6],"inclusive":true},"INCOMMENT":{"rules":[0,1,2,3,4,5,6],"inclusive":true}}
 });
 return lexer;

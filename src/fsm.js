@@ -15,7 +15,7 @@ module.exports = class FSM extends SimpleEventEmitter {
 
   start () {
     if (this.state)
-      return this
+      throw new Error('FSM is already started!')
 
     this.state = this.__start__
     this.emit('start', this.state)
@@ -25,7 +25,7 @@ module.exports = class FSM extends SimpleEventEmitter {
 
   input (input, ...args) {
     if (!this.state)
-      return this
+      throw new Error('FSM cann\'t input before start!')
 
     const first = this.state
     const second = this.__rules__[first][input]

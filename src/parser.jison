@@ -5,7 +5,7 @@
 /** identifiers **/
 identifier                              ([\w\*])+
 
-keywords                                "@define" | "@start"
+keywords                                "@define"|"@start"|"@strict"
 
 symbols                                 "=>"|"("|")"|"{"|"}"|","|";"
 
@@ -40,14 +40,18 @@ regexp                                  "/"([^\\\n\`]|\\.)+?"/"
 /**  FSM **/
 
 fsm_rule_file
-  : fsm_rule EOF                        { return $1 }
+  : fsm_rule_with_strict EOF            { return $1 }
+  ;
+
+fsm_rule_with_strict
+  : '@strict' ';' fsm_rule              { $$ = {strict: true, define: $3[0], start: $3[1], body: $3[2]} }
+  | fsm_rule                            { $$ = {strict: false, define: $1[0], start: $1[1], body: $1[2]} }
   ;
 
 fsm_rule
   : '@define' state_list ';'
     '@start' state ';'
-    fsm_rule_body                       { $$ = {define: $2, start: $5, body: $7 }
-    }
+    fsm_rule_body                       { $$ = [$2, $5, $7] }
   ;
 
 fsm_rule_body

@@ -30,7 +30,7 @@ module.exports = function (_SimpleEventEmitter) {
   _createClass(FSM, [{
     key: 'start',
     value: function start() {
-      if (this.state) return this;
+      if (this.state) throw new Error('FSM is already started!');
 
       this.state = this.__start__;
       this.emit('start', this.state);
@@ -40,7 +40,7 @@ module.exports = function (_SimpleEventEmitter) {
   }, {
     key: 'input',
     value: function input(_input) {
-      if (!this.state) return this;
+      if (!this.state) throw new Error('FSM cann\'t input before start!');
 
       var first = this.state;
       var second = this.__rules__[first][_input];

@@ -6,7 +6,8 @@
   "scripts": {
     "test": "node test/test.js",
     "build-parser": "$(npm bin)/jison src/parser.jison -o dist/parser.js",
-    "build": "npm run build-parser && cd src && $(npm bin)/babel *.js --out-dir ../dist"
+    "build": "npm run build-parser && cd src && $(npm bin)/babel *.js --out-dir ../dist",
+    "all": "npm run build && npm run test"
   },
   "repository": {
     "type": "git",
