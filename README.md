@@ -18,18 +18,14 @@ In browser.
 ## Usage
 
 ```
-define aaa, bbb, cccc, ddd, eee, fff
-start home
+# This is a test fsm rule file
 
-login (saasfd) => home {
-  define aaa, bbb, ccc, ddd, eee, fff
-  start character
-  * (goCharacter) => character
-  * (goGame) => game
-  * (goStore) => store
-}
+@strict;
+@define home, game, end, error;
+@start home;
 
-home (logout) => login {
-  define aaa, bbb, ccc, ddd, eee, fff
-}
+home (startGame) => game;
+game (endGame) => end;
+end (backHome) => home;
+/.*/ (getError) => error;
 ```
