@@ -17,7 +17,7 @@ In browser.
 
 ## Usage
 
-
+```
 define aaa, bbb, cccc, ddd, eee, fff
 start home
 
@@ -32,4 +32,4 @@ login (saasfd) => home {
 home (logout) => login {
   define aaa, bbb, ccc, ddd, eee, fff
 }
-
+```
